@@ -136,6 +136,10 @@ type RangeEvent struct {
 }
 
 func (c *CVETools) formatVulnerabilityMarkdown(vuln *Vulnerability) string {
+	if vuln == nil {
+		return ""
+	}
+
 	var sb strings.Builder
 
 	fmt.Fprintf(&sb, "# %s\n\n", vuln.ID)
